@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/eawebmaster20/wordquote/issues"
   },
-  "homepage": "https://github.com/eawebmaster20/wordquote#readme"
+  "homepage": "https://github.com/eawebmaster20/wordquote#readme",
+  "dependencies": {
+    "openai": "^4.52.0"
+  }
 }
