@@ -1,0 +1,17 @@
+body{
+    background-color: #fcffff;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: auto 40% auto 40% auto;
+}
+.quote-of-day-card, .word-of-day-card{
+    display: flex;
+}
+.quote-of-day-card{
+    grid-area: 1 / 2 / span 1
+}
+.word-of-day-card{
+    grid-area: 1 /4 / span 1
+}
