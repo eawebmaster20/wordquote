@@ -1,17 +1,248 @@
+:root{
+    font-family: Poppins;
+}
 body{
     background-color: #fcffff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;
+    background-image: url("assets/bg1.jpg") !important;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
-
-.container{
+.right-menu{
+    position: absolute;
+    top: 16%;
+    right: 1rem;
+    z-index: 102;
+    display: flex;
+    background-color: #6c757d;
+    height: 5rem;
+    padding: 5px;
+    gap: 0.5rem;
+    border-radius: 19px;
+    flex-direction: column;
+    justify-content: center;
+}
+.app-icon{
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 14px;
+    background: #6c757dbf;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+#goToQuote{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+#goToQuote button{
+    margin: 0;
+}
+.main-container{
+    position: relative;
     display: grid;
+    width: 100%;
     grid-template-columns: auto 40% auto 40% auto;
 }
-.quote-of-day-card, .word-of-day-card{
+/* .settings-btn,.schedule-btn, .settings-container{
+    position: absolute;
+    z-index: 100;
+} */
+.settings-btn{
+    /* right: 1rem; */
     display: flex;
+    width: 28px;
+    overflow-x: clip;
+    height: 28px;
+    background: #d5d5d5;
+    padding: 2px;
+    border-radius: 14px;
+    transition: width .3s ease-in-out;
+}
+.schedule-btn{
+    /* right: 1rem; */
+    display: flex;
+    width: 28px;
+    overflow-x: clip;
+    height: 28px;
+    background: #d5d5d5;
+    padding: 2px;
+    border-radius: 14px;
+    transition: width .3s ease-in-out;
+}
+.setting-icon{
+    -webkit-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+}
+.settings-btn:hover, .schedule-btn:hover{
+    cursor: pointer;
+    width: 8rem;
+    border-radius: 1rem;
+}
+.settings-btn:hover .setting-icon, .schedule-btn:hover .schedule-icon{
+    animation: none;
+}
+.settings-label,.schedule-label{
+    margin-left: 8px;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+.pulse-one, .pulse-two, .pulse-three, .pulse-four{
+    background-color: #6c757d;
+    width: 10px;
+    border-radius: 1px;
+    animation: showLoading .6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.pulse-one, .pulse-three{
+    height: 50px;
+}
+.pulse-two, .pulse-four{
+    margin: 0 .3rem;
+    height: 80px;
+}
+.pulse-one{
+    animation-delay: .6s!important;
+}
+.pulse-two{
+    animation-delay: .8s!important;
+}
+.pulse-three{
+    animation-delay: 1s!important;
+}
+.pulse-four{
+    animation-delay: 1.2s!important;
+}
+.pulse-container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes showLoading{
+    from{
+        transform: translateY(10px);
+        filter: blur(5px);
+        opacity: 0.3;
+    }
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.container button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.quote-of-day-card, .word-of-day-card, .pre-qoute{
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    max-height: fit-content;
+    background-color: #eeeeee;
+    border-radius: 1rem;
+    padding: 1rem;
+    animation: showContent .5s;
+    animation-duration: 1s;
+}
+@keyframes showContent{
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.hide{
+    display: none !important;
+    transition: display .5s;
+}
+
+#dailyWordDef, #wordPronunctiation {
+    color: #6c757d;
+}
+.quote-of-day-card .word-of-day-card, .text-content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.text-content p{
+    margin: 0;
+}
+
+.quote-of-day-card .word-of-day-card, button{
+    margin-top: auto;
+}
+.daily-word-label{
+    font-size: 2em;
+}
+.Pronounciation-label, .word-definition-label{
+    font-size: 1em;
+    font-weight: 600;
+    color: #626363;
+}
+.word-container, .word-pronunciation-container, .word-definition-container{
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    grid-area: 1 / span 5;
+    padding: 1rem;
+    font-size: 3em;
+    font-weight: 400;
+    line-height: 141px;
+    letter-spacing: -0.04em;
 }
 .quote-of-day-card{
-    grid-area: 1 / 2 / span 1
+    grid-area: 2 / 2 / span 1
 }
 .word-of-day-card{
-    grid-area: 1 /4 / span 1
+    grid-area: 2 /4 / span 1
+}
+
+@media only screen and (max-width: 600px) {
+    .main-container{
+        display: grid;
+        grid-template-columns: auto 40%;
+    }  
+    .word-of-day-card, .quote-of-day-card{
+        margin: 1rem;
+    }
+    .quote-of-day-card{
+        grid-area: 2 / span 5;
+
+    }
+    .word-of-day-card{
+        grid-area: 3 / span 5;
+    }
+    .title{
+        display: flex;
+        justify-content: center;
+        grid-area: 1 / span 5;
+        padding: 1rem;
+        font-size: 1.5em;
+        font-weight: 400;
+        line-height: 56px;
+        letter-spacing: -0.04em;
+    }
 }
